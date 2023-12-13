@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ответы на все вопросы</title>
+        <meta charset="utf-8"/>
+        <style>
+            body{background: gray;}
+            .center {text-align: center;}
+            .text{text-align: center;}
+
+            .message-box {
+            display: none; /* Начально скрыто */
+            padding: 30px;
+            margin: 50px 0;
+            border: 3px solid #be0000;
+            background-color: #000000;
+            color: #333;
+            text-align: center;
+            font-size: 30px;
+        }
+        .error {
+            color: red;
+        }
+        </style>
+
+
+
+    </head>
+
+
+    <body>
+        <br/><br/><br/><br/><br/><br/>
+        <hr color="#065e33"/>
+<h1 align="center">Добро пожаловать</h1>
+<h2 align="center">Тут собрана база ответов на все ваши вопросы касаемо учебы</h2>
+     <div class="text">
+         <input  type="text" id="myTextBox" style= "width: 500px; height: 50px; background: #065e33; font-size: 20px; text-align: center; border-radius: 5%; " placeholder="Задайте вопрос" >
+    </div>
+   
+    <div class="message-box" id="errorMessage">
+        <p class="error">Ошибка! Пожалуйста, введите ваш вопрос!</p>
+    </div>
+
+    <script>
+        function showErrorMessage() {
+            // Получаем элемент message-box по его ID
+            var errorMessage = document.getElementById("errorMessage");
+    
+            // Показываем сообщение
+            errorMessage.style.display = "block";
+    
+            // Скрываем сообщение через 3 секунды (можно настроить по вашему усмотрению)
+            setTimeout(function() {
+                errorMessage.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+    <script >
+        function getTextFromTextBox() {
+            // Получаем элемент input по его ID
+            var textBox = document.getElementById("myTextBox");
+            
+            if(textBox.value == ""){
+                showErrorMessage();
+                return;
+            }
+                
+            
+
+
+            // Получаем значение (текст) из текстового поля
+           var link = "https://www.google.com/search?q=" + textBox.value;
+          
+           window.location.href = link
+        }
+        
+    </script>
+
+<br/><br/>
+
+    <div class="center">
+        <button onclick="getTextFromTextBox()" style="width: 300px; height: 75px; font-size: 20px; background: #065e33; border-radius: 5%;">Получить ответ</button>
+    </div>
+
+<p align="center"><em>кликните на кнопку</em></p>
+<hr color="#065e33"/>
+    </body>
+</html>
